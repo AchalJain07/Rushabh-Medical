@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Rushabh Medical Agencies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <svg class="h-12 w-12 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v1.285a.75.75 0 0 0 .75.75h.25a.75.75 0 0 1 .75.75v3.25a.75.75 0 0 1-.75.75h-.25a.75.75 0 0 0-.75.75v1.286a.75.75 0 0 0 .5.707 9.735 9.735 0 0 0 3.25.555 9.707 9.707 0 0 0 5.25-1.533v-1.07a.75.75 0 0 0-.214-.519l-.234-.234a.75.75 0 0 0-.519-.214h-3a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h3a.75.75 0 0 0 .519-.214l.234-.234a.75.75 0 0 0 .214-.519v-1.07Z" />
+                    <path d="M12.75 4.533A9.707 9.707 0 0 1 18 3a9.735 9.735 0 0 1 3.25.555.75.75 0 0 1 .5.707v1.285a.75.75 0 0 1-.75.75h-.25a.75.75 0 0 0-.75.75v3.25a.75.75 0 0 0 .75.75h.25a.75.75 0 0 1 .75.75v1.286a.75.75 0 0 1-.5.707 9.735 9.735 0 0 1-3.25.555 9.707 9.707 0 0 1-5.25-1.533v-1.07a.75.75 0 0 1 .214-.519l.234-.234a.75.75 0 0 1 .519-.214h3a.75.75 0 0 0 .75-.75V6a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 1-.519-.214l-.234-.234a.75.75 0 0 1-.214-.519v-1.07Z" />
+                </svg>
+                <h1 class="text-3xl font-bold text-gray-800 mt-4">Rushabh Medical Agencies</h1>
+                <p class="text-gray-500 mt-1">Please log in to your account</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="mb-6">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                            <button id="admin-tab" class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm">Admin</button>
+                            <button id="employee-tab" class="whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm">Employee</button>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Employee Panel -->
+                <div id="employee-panel" class="hidden">
+                    <form id="employee-login-form" class="space-y-6">
+                        <div>
+                            <label for="employee-id" class="block text-sm font-medium text-gray-700">Employee ID</label>
+                            <input id="employee-id" name="employee-id" type="text" required class="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="employee-password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input id="employee-password" name="password" type="password" required class="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <p id="employee-login-error" class="text-sm text-red-500 text-center hidden">Invalid Employee ID or Password.</p>
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">Sign in</button>
+                    </form>
+                </div>
+                <!-- Admin Panel -->
+                <div id="admin-panel">
+                    <form id="admin-login-form" class="space-y-6">
+                        <div>
+                            <label for="admin-id" class="block text-sm font-medium text-gray-700">Admin ID</label>
+                            <input id="admin-id" name="admin-id" type="text" required class="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="admin-password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input id="admin-password" name="admin-password" type="password" required class="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <p id="admin-login-error" class="text-sm text-red-500 text-center hidden">Invalid Admin ID or Password.</p>
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">Sign in</button>
+                    </form>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-8">&copy; 2025 Rushabh Medical Agencies. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyADR9eysXPBY-mGsT2MUBbsKBkcYgLH66I",
+            authDomain: "rushabh-medical-task.firebaseapp.com",
+            projectId: "rushabh-medical-task",
+            storageBucket: "rushabh-medical-task.appspot.com",
+            messagingSenderId: "627857793589",
+            appId: "1:627857793589:web:b7f780679f2f2c9500077c",
+            measurementId: "G-BX7X3ERMQ0"
+        };
+        
+        // Initialize Firebase. If it fails, show an alert.
+        let db;
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            const auth = getAuth(app);
+            await signInAnonymously(auth);
+        } catch (e) {
+            console.error("Firebase initialization failed:", e);
+            alert("Could not connect to the database. Please check your Firebase configuration.");
+        }
+
+        // Because this is a module script, it runs after the HTML is loaded.
+        // We can safely access the elements without waiting for DOMContentLoaded.
+        
+        // --- Elements ---
+        const employeeTab = document.getElementById('employee-tab');
+        const adminTab = document.getElementById('admin-tab');
+        const employeePanel = document.getElementById('employee-panel');
+        const adminPanel = document.getElementById('admin-panel');
+        const employeeLoginForm = document.getElementById('employee-login-form');
+        const adminLoginForm = document.getElementById('admin-login-form');
+        const employeeLoginError = document.getElementById('employee-login-error');
+        const adminLoginError = document.getElementById('admin-login-error');
+
+        // --- Tab Switching Logic ---
+        function switchTab(activeTab) {
+            const isEmployeeActive = activeTab === 'employee';
+
+            employeePanel.classList.toggle('hidden', !isEmployeeActive);
+            adminPanel.classList.toggle('hidden', isEmployeeActive);
+
+            const activeClasses = 'text-blue-600 border-blue-500';
+            const inactiveClasses = 'text-gray-500 hover:text-gray-700 hover:border-gray-300';
+            
+            employeeTab.className = `whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm ${isEmployeeActive ? activeClasses : inactiveClasses}`;
+            adminTab.className = `whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm ${!isEmployeeActive ? activeClasses : inactiveClasses}`;
+        }
+
+        // Set initial state
+        switchTab('admin');
+
+        // Add event listeners
+        employeeTab.addEventListener('click', () => switchTab('employee'));
+        adminTab.addEventListener('click', () => switchTab('admin'));
+
+        // --- Login Logic ---
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            adminLoginError.classList.add('hidden');
+            const id = document.getElementById('admin-id').value.trim();
+            const pass = document.getElementById('admin-password').value.trim();
+            
+            if (id === 'Rushabh Medical' && pass === 'Ajay1008') {
+                sessionStorage.setItem('isAdminLoggedIn', 'true');
+                window.location.href = './admin.html';
+            } else {
+                adminLoginError.classList.remove('hidden');
+            }
+        });
+
+        employeeLoginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            employeeLoginError.classList.add('hidden');
+            const id = document.getElementById('employee-id').value.trim();
+            const pass = document.getElementById('employee-password').value.trim();
+
+            const employeesRef = collection(db, "employees");
+            const q = query(employeesRef, where("id", "==", id), where("password", "==", pass));
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+                sessionStorage.setItem('loggedInEmployeeId', id);
+                window.location.href = './employee.html';
+            } else {
+                employeeLoginError.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
